@@ -1,16 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const Sequelize = require('sequelize');
 const path = require('path');
 const app = express();
 
-const sequelize = new Sequelize('groupomaniadb', 'hippo', '@Wergeronbak1', {
-    host: 'localhost',
-    dialect: 'mysql'
-  });
-sequelize
-  .authenticate()
+const postRoutes = require('./routes/post');
+const userRoutes = require('./routes/user');
+const commentRoutes = require('./routes/comment');
+
+const db = require('./config/database')
+db.authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
   })
@@ -28,9 +27,9 @@ app.use(bodyParser.json());
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-
-
-
+app.use('/api/post', postRoutes);
+app.use('/api/auth', userRoutes);
+app.use('/api/comment', commentRoutes);
 
 
 
