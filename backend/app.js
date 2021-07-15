@@ -7,15 +7,8 @@ const app = express();
 const postRoutes = require('./routes/post');
 const userRoutes = require('./routes/user');
 const commentRoutes = require('./routes/comment');
+const { loadModels } = require('./models/index');
 
-const db = require('./config/database')
-db.authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error(err);
-  });
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -24,6 +17,9 @@ app.use((req, res, next) => {
     next();
   });
 app.use(bodyParser.json());
+
+
+loadModels();
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 

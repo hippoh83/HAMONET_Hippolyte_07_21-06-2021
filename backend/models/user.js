@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
-const userSchema = db.define('Users', {
-    user_id: { type: Sequelize.INTEGER, autoIncrement: true, allowNull: false, primaryKey: true},
-    email : { type: Sequelize.STRING, allowNull: false},
-    password : { type : Sequelize.STRING, allowNull: false }
+const User = db.define('Users', {
+    email : { type: Sequelize.STRING, allowNull: false, unique: true},
+    password : { type : Sequelize.STRING, allowNull: false },
+    isAdmin : { type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false}
 });
 
-module.exports = userSchema;
+module.exports = User;
