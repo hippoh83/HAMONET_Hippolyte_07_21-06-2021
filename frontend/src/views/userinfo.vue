@@ -17,3 +17,13 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.userInfo{
+  background-image: url('../assets/shutterstock_430168801.jpeg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position:right;
+        height: 100vh;
+   overflow-y: scroll;
+}
+</style>

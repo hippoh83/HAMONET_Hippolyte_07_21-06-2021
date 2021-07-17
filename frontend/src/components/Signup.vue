@@ -5,7 +5,7 @@
     <form @submit.prevent = signup()>
       <input class="form userName" required type="text" placeholder="votre pseudo" v-model="userName" />
         <input class="form email" required type="text" placeholder="email" v-model="email" />
-        <input class="form password" required type="text" placeholder="Mot de passe" v-model="password" />
+        <input class="form password" required type="password" placeholder="Mot de passe" v-model="password" />
         <button class="buttonlogin" type="submit">Inscription</button> <br>
         <p class="error"></p>
     </form>
@@ -49,7 +49,7 @@ export default {
         )
         .then(() => {
             alert("Félicitation ! Vous venez de vous inscrire !")
-            this.$router.push('/login')
+            this.$router.push('/')
             }) 
         .catch(error => {
         document.getElementsByClassName("error").innerHTML = `${error}`;

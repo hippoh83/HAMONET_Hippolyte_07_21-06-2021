@@ -45,10 +45,43 @@ export default {
 </script>
 
 <style lang="scss">
-.deletebuton{
-    border: 1px solid blue;
-    background-color: blue;
-    padding: 5px;
-    width: 20px;
+.userinfo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+.info{
+    border: 1px solid #0F1E41; 
+    background-color: white;
+    box-shadow: 1px 1px 5px #0F1E41;
+    padding: 40px;
+    margin: 40px;
+    margin-top: 40px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    width: 350px;
+    min-height: 180px;
+    max-height: 500px;
+}
+    
+.deletebutton{
+            height: 30px;
+            border-radius: 5px;
+            background-color: lighten(lightgrey, 10%);
+            border: 1px solid #0F1E41;
+            margin-top: 10px;
+            transition: transform, 300ms, ease;
+            &:hover{
+                background-color: #C2595E;
+                cursor: pointer;
+                color: white;
+                border: 1px solid black;
+
+            }
+    
 }
 </style>

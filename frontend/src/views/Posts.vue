@@ -21,9 +21,11 @@ export default {
 </script>
 <style lang="scss">
 .Posts{
-   background-color: lighten(#0F1E41, 45%) ;
-   height: 100vh;
-   background-attachment: fixed;
+    background-image: url('../assets/shutterstock_430168801.jpeg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position:right;
+        height: 100vh;
    overflow-y: scroll;
 }
 </style>

@@ -28,6 +28,8 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 100%;
     padding: 10px;
     height: 5vh;
     .imgrouter{

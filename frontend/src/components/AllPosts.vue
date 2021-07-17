@@ -78,6 +78,7 @@ export default {
 .router{
     text-decoration: none;
     color: black;
+    width: 350px;
 }
 .postcard{
     border: 1px solid #0F1E41; 

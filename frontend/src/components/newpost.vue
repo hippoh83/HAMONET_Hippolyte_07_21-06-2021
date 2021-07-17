@@ -92,6 +92,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 }
 .Post{
     border: 1px solid #0F1E41; 
@@ -134,8 +135,8 @@ export default {
             &:hover{
                 background-color: #C2595E;
                 cursor: pointer;
-                color: black;
-                border: 1px solid #C2595E;
+                color: white;
+                border: 1px solid black;
 
             }
 

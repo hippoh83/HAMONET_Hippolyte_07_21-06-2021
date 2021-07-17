@@ -211,7 +211,7 @@ export default {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 50px;
     
 }
 .post{
