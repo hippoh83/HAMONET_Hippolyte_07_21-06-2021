@@ -4,7 +4,7 @@
             <h1>Connexion</h1>
     <form @submit.prevent = login()>
         <input class="form email" required type="text" placeholder="email" v-model="email" />
-        <input class="form password" required type="text" placeholder="Mot de passe" v-model="password" />
+        <input class="form password" required type="password" placeholder="Mot de passe" v-model="password" />
         <button class="buttonlogin" type="submit">Connexion</button> <br>
         <p class="error"></p>
     </form>
@@ -43,9 +43,11 @@ export default {
       )
       .then((res) => {
         {
+          console.log(res);
           localStorage.setItem("token", (res.data.token));
           localStorage.setItem("userId", (res.data.userId));
           localStorage.setItem("isAdmin", (res.data.isAdmin));
+          localStorage.setItem("userName",  (res.data.userName));
         }
         this.$router.push('/Posts');
       })

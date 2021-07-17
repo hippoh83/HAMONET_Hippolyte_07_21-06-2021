@@ -3,6 +3,7 @@
         <div class="loginform">
             <h1>Inscription</h1>
     <form @submit.prevent = signup()>
+      <input class="form userName" required type="text" placeholder="votre pseudo" v-model="userName" />
         <input class="form email" required type="text" placeholder="email" v-model="email" />
         <input class="form password" required type="text" placeholder="Mot de passe" v-model="password" />
         <button class="buttonlogin" type="submit">Inscription</button> <br>
@@ -20,6 +21,7 @@ export default {
   name: "Signup",
   data() {
     return {
+      userName: "",
       email: "",
       password: "",
       
@@ -28,13 +30,14 @@ export default {
   methods: {
     signup() {
       
+      const userName = this.userName;
       const email = this.email;
       const password = this.password;
       
       if ( password.length > 0) {
         axios.post("http://localhost:3000/api/auth/signup",
             {
-              
+              userName,
               email,
               password,
             },

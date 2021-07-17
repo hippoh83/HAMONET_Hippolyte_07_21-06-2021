@@ -1,7 +1,7 @@
 <template>
   <div class="userinfo">
       <section class="info">
-          <h1>Bonjour ! </h1><br>
+          <h1>Bonjour {{ username }} ! </h1><br>
           <button class="deletebutton" @click="deleteAccount">Supprimer le compte</button>
 
       </section>
@@ -13,6 +13,14 @@
 import axios from 'axios'
 export default {
     name: 'userinfo',
+    data() {
+        return{
+    username : "",
+        }
+    },
+    mounted() {
+        this.username = localStorage.getItem("userName");
+    },
     methods: {
         deleteAccount(){
         const token = localStorage.getItem('token')

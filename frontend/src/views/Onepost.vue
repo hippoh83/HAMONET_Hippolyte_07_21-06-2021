@@ -1,29 +1,27 @@
 <template>
-  <div class="Posts">
+  <div class="onepost">
     <loggedInHeader />
-    <newpost />
-    <allposts />
+    <post />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import loggedInHeader from '@/components/loggedInHeader.vue'
-import newpost from '@/components/newpost.vue'
-import allposts from '@/components/AllPosts.vue'
+import post from '@/components/post.vue'
+
 
 export default {
-  name: 'Posts',
+  name: 'onepost',
   components: {
-   loggedInHeader, allposts, newpost
+   loggedInHeader, post
   }
 }
 </script>
 <style lang="scss">
-.Posts{
+.onepost{
    background-color: lighten(#0F1E41, 45%) ;
    height: 100vh;
-   background-attachment: fixed;
    overflow-y: scroll;
 }
 </style>

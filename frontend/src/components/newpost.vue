@@ -53,9 +53,9 @@ export default {
                     "Authorization": `Bearer ${token}`
                 }
                 })
-            .then((res) => 
+            .then(() => 
             {
-                    console.log(res);
+                    window.location.reload();
             })
             .catch(error => 
             {
@@ -92,11 +92,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
 }
 .Post{
     border: 1px solid #0F1E41; 
-    background-color: #0F1E41;
+    background-color: white;
+    box-shadow: 1px 1px 5px #0F1E41;
     padding: 15px;
     margin: 10px;
     margin-top: 40px;
@@ -105,7 +105,7 @@ export default {
     width: 350px;
     height: 300px;
     h1{
-        color: white;
+        color: black;
         font-size: 22px;
         text-align: center;
         padding-bottom: 10px;
@@ -113,27 +113,28 @@ export default {
     form{
         display: flex;
         flex-direction: column;
+        color: black;
         .formNewPost{
             height: 30px;
             border-radius: 5px;
-            background-color: white;
-            border: 1px solid white;
+            background-color: lighten(lightgrey, 10%);
+            border: 1px solid #0F1E41;
             margin-top: 10px;
         }
         .formimg{
-            color: white;
+            color: #0F1E41;
         }
         .buttonpost {
             height: 30px;
             border-radius: 5px;
-            background-color: white;
-            border: 1px solid white;
+            background-color: lighten(lightgrey, 10%);
+            border: 1px solid #0F1E41;
             margin-top: 10px;
             transition: transform, 300ms, ease;
             &:hover{
                 background-color: #C2595E;
                 cursor: pointer;
-                color: white;
+                color: black;
                 border: 1px solid #C2595E;
 
             }

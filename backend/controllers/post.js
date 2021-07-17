@@ -44,17 +44,21 @@ exports.deletePost = (req,res, next) => {
     })
     .then( post => {
         if (post.UserId == req.token.userId || req.token.isAdmin ){
-            post = Object.assign(post, JSON.parse(req.body.post)); 
-            post.UserId = req.token.userId;
             if ( req.file != undefined ){
                 const filename = post.imageUrl.split('/images/')[1];
                 fs.unlink(`images/${filename}`, () => {
                     post.destroy()
-                    .then(()=> res.status(201).json({message: 'post supprimé'}))
+                    .then(() => res.status(201).json({ message: 'post supprimé'}))
                     .catch(error =>
                          res.status(400).json({error})
                          );
                 });
+            } if ( req.file == undefined ){
+                    post.destroy()
+                    .then(() => res.status(201).json({ message: 'post supprimé'}))
+                    .catch(error =>
+                         res.status(400).json({error})
+                         );
             } 
         }
     })

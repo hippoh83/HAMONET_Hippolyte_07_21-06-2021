@@ -13,7 +13,7 @@ exports.createComment = (req, res, next) => {
 
 
 exports.deleteComment = (req, res, next) => { 
-    Comment.findOne( {
+    Comment.findOne({
         where: { id: req.params.id}
     })
     .then( comment => {

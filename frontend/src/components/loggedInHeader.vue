@@ -2,7 +2,6 @@
     <div class="header">
 <router-link to="/Posts" class="imgrouter"><img src="../assets/icon-left-font-monochrome-white.png" alt="logo groupomania"></router-link>
 <div class="link">
-<router-link to="/newpost" class="liens">Publier</router-link>
 <router-link to="/userinfo" class="liens">Mon compte</router-link>
 <a class="liens" @click="deconnexion">Deconnexion</a>
 </div>
