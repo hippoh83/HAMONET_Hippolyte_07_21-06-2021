@@ -19,6 +19,7 @@ export default {
     align-items: center;
     padding: 10px;
     height: 5vh;
+    margin-bottom: 30px;
     .imgrouter{
         padding: none;
         margin: none;

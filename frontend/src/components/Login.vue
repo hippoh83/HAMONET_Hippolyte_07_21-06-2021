@@ -65,6 +65,7 @@ export default {
     justify-content: center;
     align-items: center;
     height: 50vh;
+    
 }
 .loginform{
     border: 1px solid #0F1E41; 

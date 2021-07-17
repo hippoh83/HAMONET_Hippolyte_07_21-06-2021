@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="loggedInHeader">
 <router-link to="/Posts" class="imgrouter"><img src="../assets/icon-left-font-monochrome-white.png" alt="logo groupomania"></router-link>
 <div class="link">
 <router-link to="/userinfo" class="liens">Mon compte</router-link>
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-.header{
+.loggedInHeader{
     background-color: #0F1E41;
     display: flex;
     justify-content: space-between;
