@@ -144,5 +144,19 @@ export default {
 
     }
 }
+@media screen and (max-width: 425px){
+    .Post{
+    border: 1px solid white; 
+    background-color: white;
+    box-shadow: 1px 1px 5px #0F1E41;
+    padding: 15px;
+    margin: 0px;
+    margin-top: 40px;
+    
+    border-radius: 0px;
+    width: 100%;
+    height: 300px; 
+    }
+}
 
 </style>

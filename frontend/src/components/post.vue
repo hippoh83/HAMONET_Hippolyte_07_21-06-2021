@@ -412,5 +412,111 @@ export default {
 
     }
 }
+@media screen and (max-width: 425px){
+    .post{
+    border: 1px solid white; 
+    background-color: white;
+    box-shadow: 1px 1px 5px #0F1E41;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px;
+    
+    border-radius: 0px;
+    width: 100%;
+    min-height: 180px;
+    max-height: 530px;
+    .post-username{
+        color: darken(lightgrey, 40%);
+        padding-left: 5px;
+        padding-top:5px;
+
+    }
+    .post-name{
+        color: black;
+        font-size: 20px;
+        text-align: left;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+    }
+    .post-content{
+        padding-left:5px;
+    }
+    .post-image{
+        width: 100%;
+        height: 40%;
+        margin-top: 14px;
+        
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0px;
+            border: 1px solid #0F1E41; 
+        }
+    }
+    .noComments{
+        width: 100%;
+        min-height: 30px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        padding-left: 0px;
+        margin-top: 20px;
+        border: 1px solid #0F1E41;
+        border-radius: 0px;
+        background-color:  lighten(lightgrey, 15%) ;
+
+    }
+    .comments{
+        width: 100%;
+        min-height: 50px;
+        overflow: scroll;
+        max-height: 90px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+        border-radius: 0px;
+        background-color:  lighten(lightgrey, 12%) ;
+
+    }
+    .Onecomments{
+        width: 95%;
+        min-height: 40px;
+        overflow: scroll;
+        display: block;
+        margin-top: 5px;
+        border: 1px solid #0F1E41;
+        border-radius: 5px;
+        background-color:  white ;
+        .comment-user{
+            color: darken(lightgrey, 40%);
+            font-size: 13px;
+            padding: 2px;
+        }
+        .comment-content{
+            padding-top: 3px;
+            padding-left: 2px;
+        }
+
+    }
+    }
+    .modifyPost{
+    border: 1px solid #0F1E41; 
+    background-color: white;
+    box-shadow: 1px 1px 5px #0F1E41;
+    padding: 15px;
+    margin: 0px;
+    margin-top: 20px;
+
+    border-radius: 0px;
+    width: 100%;
+    height: 300px;
+    
+}
+}
 
 </style>

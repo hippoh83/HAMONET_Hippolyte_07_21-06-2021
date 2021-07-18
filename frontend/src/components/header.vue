@@ -16,6 +16,7 @@ export default {
 .header{
     background-color: #0F1E41;
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 10px;
     height: 5vh;
@@ -26,7 +27,8 @@ export default {
     }
     img{
         width: 30%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
         padding: none;
         margin: none;
     }
@@ -47,11 +49,13 @@ export default {
         margin: none;
     }
     img{
-        width: 50%;
-        height: auto;
+        width: 80%;
+        height: 100%;
         padding: none;
         margin: none;
+        
     }
+
     p{
         display: none;
     }

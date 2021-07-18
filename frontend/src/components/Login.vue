@@ -3,7 +3,7 @@
         <div class="loginform">
             <h1>Connexion</h1>
     <form @submit.prevent = login()>
-        <input class="form email" required type="text" placeholder="email" v-model="email" />
+        <input class="form email" required type="email" placeholder="email" v-model="email" />
         <input class="form password" required type="password" placeholder="Mot de passe" v-model="password" />
         <button class="buttonlogin" type="submit">Connexion</button> <br>
         <p class="error"></p>

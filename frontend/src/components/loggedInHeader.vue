@@ -1,6 +1,7 @@
 <template>
     <div class="loggedInHeader">
 <router-link to="/Posts" class="imgrouter"><img src="../assets/icon-left-font-monochrome-white.png" alt="logo groupomania"></router-link>
+<router-link to="/Posts" class="accueil">Accueil</router-link>
 <div class="link">
 <router-link to="/userinfo" class="liens">Mon compte</router-link>
 <a class="liens" @click="deconnexion">Deconnexion</a>
@@ -32,6 +33,9 @@ export default {
     width: 100%;
     padding: 10px;
     height: 5vh;
+    .accueil{
+        display: none;
+    }
     .imgrouter{
         padding: none;
         margin: none;
@@ -56,20 +60,33 @@ export default {
     }
 }
 @media screen and (max-width: 425px){
-    .header{
+    .loggedInHeader{
     background-color: #0F1E41;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 5px;
     height: 5vh;
+    .accueil{
+        display: contents;
+        color: white;
+        text-decoration: none;
+        padding-right: 25px;
+        &:hover{
+            cursor: pointer;
+            text-decoration:underline;
+            font-weight: bold;
+        }
+    
+    }
+    .liens{
+        padding-right: 25px;
+    }
     .imgrouter{
         padding: none;
         margin: none;
     }
     img{
-        display: none;
-    }
-    p{
         display: none;
     }
 }
