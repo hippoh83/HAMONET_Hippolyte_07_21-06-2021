@@ -39,7 +39,6 @@ export default {
     .imgrouter{
         padding: none;
         margin: none;
-        height: 100%;
     }
     img{
         width: 30%;

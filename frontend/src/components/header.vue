@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-<router-link to="/" class="imgrouter"><img src="../assets/icon-left-font-monochrome-white.png" alt="logo groupomania"></router-link>
+<router-link to="/" class="imgRouter"><img src="../assets/icon-left-font-monochrome-white.png" alt="logo groupomania"></router-link>
 <p>Bienvenue chez Groupomania, votre réseau social d'entreprise !</p>
     </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     padding: 10px;
     height: 5vh;
     margin-bottom: 30px;
-    .imgrouter{
+    .imgRouter{
         padding: none;
         margin: none;
     }

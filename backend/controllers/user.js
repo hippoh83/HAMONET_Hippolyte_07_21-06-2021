@@ -3,11 +3,11 @@ const bcrypt = require('bcrypt');
 const {Post, User, Comment } = require('../models/index');
 const jwt = require('jsonwebtoken');
 const AES = require('../AES');
-const validator = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
 
 exports.signup = (req, res, next) => {
-  validator(req.body.email).isEmail().normalizeEmail()
+  body('email').isEmail().normalizeEmail();
   bcrypt.hash(req.body.password, 10)
     .then(hash => {
       var encrypted = AES.encrypt(req.body.email);
@@ -30,7 +30,7 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-  validator(req.body.email).isEmail().normalizeEmail()
+  body('email').isEmail().normalizeEmail();
   var encrypted = AES.encrypt(req.body.email);
   User.findOne({
       where: {
