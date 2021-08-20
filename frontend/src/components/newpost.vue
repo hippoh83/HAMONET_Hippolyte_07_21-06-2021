@@ -44,44 +44,44 @@ export default {
                 console.log(file);
                 
 
-           axios.post("http://localhost:3000/api/post/",
-                file,
-                {
-                headers: {
-                    "accept" : '*/*',
-                    "Content-Type" : "multipart/form-data; boundary= -----",
-                    "Authorization": `Bearer ${token}`
-                }
-                })
-            .then(() => 
-            {
-                    window.location.reload();
-            })
-            .catch(error => 
-            {
-                console.log( error )
-            });
+                axios.post("http://localhost:3000/api/post/",
+                        file,
+                        {
+                        headers: {
+                            "accept" : '*/*',
+                            "Content-Type" : "multipart/form-data; boundary= -----",
+                            "Authorization": `Bearer ${token}`
+                        }
+                        })
+                    .then(() => 
+                    {
+                            window.location.reload();
+                    })
+                    .catch(error => 
+                    {
+                        console.log( error )
+                    });
             } else if(this.image === undefined) {
-            axios.post("http://localhost:3000/api/post/",
+                axios.post("http://localhost:3000/api/post/",
+                    {
+                    post,
+                    },
+                    {
+                    headers: {
+                        "accept" : '*/*',
+                        "Authorization": `Bearer ${token}`
+                    }
+                    })
+                .then(() => 
                 {
-                post,
-                },
-                {
-                headers: {
-                    "accept" : '*/*',
-                    "Authorization": `Bearer ${token}`
-                }
+                        window.location.reload()
                 })
-            .then(() => 
-            {
-                    window.location.reload()
-            })
-            .catch(error => 
-            {
-                console.log( error )
-            });
-            }
-            
+                .catch(error => 
+                {
+                    console.log( error )
+                });
+                }
+                
         }
     }
 }

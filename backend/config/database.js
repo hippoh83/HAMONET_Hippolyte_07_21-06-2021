@@ -2,12 +2,12 @@ require('dotenv').config();
 const Sequelize = require('sequelize');
 
 
-const db = new Sequelize(`${process.env.dbName}`, `${process.env.User}`, `${process.env.UserPassword}`, {
-    host: 'localhost',
-    dialect: 'mysql'
-  });
+const db = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+  host: 'localhost',
+  dialect: 'mysql'
+});
 
-  db.authenticate()
+db.authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
   })
@@ -15,4 +15,4 @@ const db = new Sequelize(`${process.env.dbName}`, `${process.env.User}`, `${proc
     console.error(err);
   });
 
-  module.exports = db;
+module.exports = db;

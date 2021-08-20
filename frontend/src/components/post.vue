@@ -3,7 +3,7 @@
       <article class="post" v-if="mypost !== undefined">
                 <div class="post-username">  
                     Publié par {{ mypost.User.userName }}- {{ datePost(mypost.createdAt) }}
-                    <button class="deletePost" @click="deletePost" v-if="userId == mypost.UserId || isAdmin == true">Supprimer</button>
+                    <button class="deletePost" @click="deletePost" v-if="userId == mypost.UserId || isAdmin == 'true'">Supprimer</button>
                 </div>
                 <hr>
                 <div class="post-name">  <strong> {{ mypost.name }} </strong> </div>
@@ -19,19 +19,19 @@
                 <div class="Comments" v-if="mypost.Comments.length != 0">
                 <div class="OneComments" v-for="comment in mypost.Comments" :key="comment">
                     <div class="comment-user"> {{comment.User.userName}} - {{ datePost(comment.createdAt) }}</div>
-                    <div class="comment-content"> {{ comment.description }} <button class="deleteComment" @click="deleteComment(comment.id)" v-if="userId == comment.UserId || isAdmin == true">Supprimer</button></div>
+                    <div class="comment-content"> {{ comment.description }} <button class="deleteComment" @click="deleteComment(comment.id)" v-if="userId == comment.UserId || isAdmin == 'true'">Supprimer</button></div>
                     
                 </div>
                 </div>
                 
     
         </article>      
-        <div class="modifyPost" v-if="userId == mypost.UserId || isAdmin == true">
+        <div class="modifyPost" v-if="isAdmin == 'true' || userId == mypost.UserId  ">
             <form class="form" @submit.prevent="modifyPost">
                 <input name="name" ref="name" class="newPost" placeholder="Modifier le titre" required v-model="post.name"/><br>
                 <textarea name="description" ref="description" class="newPost" required v-model="post.description"></textarea> <br>
                 <input class="formimg" type="file" id="file" accept=".png, .jpg, .jpeg" ref="imageUrl"> <br>
-                <button class="buttonmodifyPost" @click="modifyPost">Modifier</button>
+                <button class="buttonmodifyPost" type="submit">Modifier</button>
             </form>
         </div>
   </div>
@@ -64,6 +64,7 @@ export default {
         this.getOnePost();
         this.userId = localStorage.getItem('userId');
         this.isAdmin = localStorage.getItem('isAdmin');
+        
     },
     methods: {
         getOnePost() {
