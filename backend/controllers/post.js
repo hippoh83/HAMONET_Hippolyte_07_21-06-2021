@@ -3,8 +3,10 @@ const fs = require('fs');
 
 
 
+
 exports.createPost = (req, res, next) => {
-    const postObject = JSON.parse(req.body.post);
+    const sanitizedString = req.sanitize(req.body.post);
+    const postObject = JSON.parse(sanitizedString);
     postObject.UserId = req.token.userId;
     if (req.file != undefined) {
         postObject.imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
@@ -26,7 +28,8 @@ exports.modifyPost = (req, res, next) => {
         })
         .then(post => {
             if (post.UserId == req.token.userId || req.token.isAdmin) {
-                post = Object.assign(post, JSON.parse(req.body.post));
+                const sanitizedString = req.sanitize(req.body.post);
+                post = Object.assign(post, JSON.parse(sanitizedString));
                 post.UserId = req.token.userId;
                 if (req.file != undefined) {
                     if (post.imageUrl != undefined) {

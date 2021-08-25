@@ -8,10 +8,13 @@ const postRoutes = require('./routes/post');
 const userRoutes = require('./routes/user');
 const commentRoutes = require('./routes/comment');
 const { loadModels } = require('./models/index');
+const expressSanitizer = require('express-sanitizer');
+const { xss } = require('express-xss-sanitizer');
+
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 
+  max: 30 
 });
 
 app.use((req, res, next) => {
@@ -21,19 +24,19 @@ app.use((req, res, next) => {
   next();
 });
 app.use(bodyParser.json());
-app.use(limiter);
+app.use(expressSanitizer());
+app.use(xss());
 
 
-
-
+  
 loadModels();
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/post', postRoutes);
-app.use('/api/auth', userRoutes);
+app.use('/api/auth', limiter, userRoutes);
 app.use('/api/comment', commentRoutes);
-//ou api/post/comment ??
+
 
 
 

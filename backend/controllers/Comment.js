@@ -6,8 +6,8 @@ const {
 
 
 exports.createComment = (req, res, next) => {
-
-    const commentObject = JSON.parse(req.body.comment);
+    const sanitizedString = req.sanitize(req.body.comment);
+    const commentObject = JSON.parse(sanitizedString);
     commentObject.UserId = req.token.userId;
     Comment.create(commentObject)
         .then(() => res.status(200).json({

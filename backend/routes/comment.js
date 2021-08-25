@@ -4,6 +4,8 @@ const commentCtrl = require('../controllers/Comment');
 const auth = require('../middleware/auth');
 
 
+
+
 router.post('/', auth, commentCtrl.createComment);
 router.delete('/:id', auth, commentCtrl.deleteComment);
 
