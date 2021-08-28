@@ -6,11 +6,11 @@
         <input class="form email" required type="email" placeholder="email" v-model="email" />
         <input class="form password" required type="password" placeholder="Mot de passe" v-model="password" />
         <button class="buttonlogin" type="submit">Connexion</button> <br>
-        <p class="error"></p>
     </form>
     <router-link to="/Signup" class="buttonsignup">
     Inscrivez-vous !
     </router-link>
+    <p class="error"></p>
     </div>
     </div>
 </template>
@@ -52,14 +52,18 @@ export default {
         this.$router.push('/Posts');
       })
       .catch(error => {
-        document.getElementsByClassName("error").innerHTML = `${error}`;
+        console.log(error)
+        document.querySelector(".error").innerHTML = `Votre mot de passe ou votre email est incorrect.`;
       });
     },
   }
 };
 </script>
 <style lang="scss">
-
+.error{
+  padding-top: 20px;
+  color: red;
+}
 .login{
     display: flex;
     justify-content: center;

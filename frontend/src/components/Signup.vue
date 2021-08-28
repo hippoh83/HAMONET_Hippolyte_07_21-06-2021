@@ -7,11 +7,12 @@
         <input class="form email" required type="email" placeholder="email" v-model="email" />
         <input class="form password" required type="password" placeholder="Mot de passe" v-model="password" />
         <button class="buttonlogin" type="submit">Inscription</button> <br>
-        <p class="error"></p>
+        
     </form>
     <router-link to="/" class="buttonsignup">
     Vous avez déjâ un compte ? Connectez-vous !
     </router-link>
+    <p class="error"></p>
     </div>
     </div>
 </template>
@@ -24,18 +25,49 @@ export default {
       userName: "",
       email: "",
       password: "",
+      Users: [],
+      
       
     };
   },
+  mounted() {
+            this.getAllUsers();
+            
+        },
   methods: {
+    getAllUsers(){
+      axios.get("http://localhost:3000/api/auth/", {
+        headers: {
+            'Content-Type': 'application/json',
+            
+        }
+        })
+        .then((res) => {
+            for(let i of res.data.user){
+            this.Users.push(i.userName);
+            }
+            
+            
+        })
+        .catch((error) => console.log(error));
+    },
+
+
     signup() {
       
       const userName = this.userName;
       const email = this.email;
       const password = this.password;
-      
-      if ( password.length > 0) {
-        axios.post("http://localhost:3000/api/auth/signup",
+      const regpassword = !(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password))
+
+      if ( password.length > 0 && userName.length > 0 && email.length > 0) {
+         
+          if(this.Users.includes(userName)){
+            document.querySelector(".error").innerHTML = `Ce nom d'utilisateur existe déjâ.`;
+          } else if (regpassword){
+            document.querySelector(".error").innerHTML = `Le mot de passe doit contenir 8 caractères, avoir au moins une lettre et un chiffre.`;
+          } else {
+            axios.post("http://localhost:3000/api/auth/signup",
             {
               userName,
               email,
@@ -51,17 +83,22 @@ export default {
             alert("Félicitation ! Vous venez de vous inscrire !")
             this.$router.push('/')
             }) 
-        .catch(error => {
-        document.getElementsByClassName("error").innerHTML = `${error}`;
+        .catch(() => {
+        document.querySelector(".error").innerHTML = `Cet email existe déjâ.`;
       });
+          }
+        
       }
-    },
-  },
+   }
+  } 
 };
 
 </script>
 <style lang="scss">
-
+.error{
+  padding-top: 15px;
+  color: red;
+}
 .login{
     display: flex;
     justify-content: center;
